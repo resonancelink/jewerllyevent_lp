@@ -164,6 +164,7 @@ body {
     letter-spacing: 0.1em;
     text-shadow: 2px 2px 8px rgba(139, 115, 85, 0.3);
     position: relative;
+    white-space: nowrap; /* Added to prevent line breaks */
 }
 
 .title-main::before,
@@ -830,6 +831,10 @@ body {
         min-height: 500px;
     }
 
+    .title-main {
+        font-size: clamp(2rem, 5vw, 4rem); /* Adjusted font size */
+    }
+
     .title-main::before,
     .title-main::after {
         display: none;
@@ -881,6 +886,10 @@ body {
     .social-icons {
         gap: 20px;
     }
+
+    .about::after {
+        /* Hide bottom-right image on mobile */ display: none;
+    }
 }
 
 @media (max-width: 576px) {
@@ -888,12 +897,13 @@ body {
         padding: 60px 15px;
     }
 
-    .title-top {
-        letter-spacing: 0.2em;
+    .title-main {
+        font-size: clamp(1.8rem, 4.5vw, 3.5rem); /* Further adjusted font size */
+        letter-spacing: 0.05em;
     }
 
-    .title-main {
-        letter-spacing: 0.05em;
+    .title-top {
+        letter-spacing: 0.2em;
     }
 
     .btn-primary {
