@@ -845,7 +845,7 @@ body {
 
     .title-main-line {
 
-        font-size: clamp(2rem, 5vw, 4rem); /* Adjusted font size for each line */
+        font-size: clamp(2.5rem, 7vw, 5rem); /* Increased font size for each line */
 
     }
 
@@ -947,6 +947,14 @@ body {
 
 
 
+    .section-title {
+
+        white-space: nowrap; /* Ensure "大自然が生み出した宝物" is on one line */
+
+    }
+
+
+
     .social-icons {
 
         gap: 20px;
@@ -979,7 +987,7 @@ body {
 
     .title-main-line {
 
-        font-size: clamp(1.8rem, 4.5vw, 3.5rem); /* Further adjusted font size for each line */
+        font-size: clamp(2.2rem, 6.5vw, 4.5rem); /* Further increased font size for each line */
 
     }
 
