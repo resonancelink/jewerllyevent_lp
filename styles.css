@@ -39,12 +39,10 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        135deg,
-        rgba(255, 248, 231, 0.75) 0%,
-        rgba(255, 229, 229, 0.70) 50%,
-        rgba(212, 232, 212, 0.75) 100%
-    );
+    background: linear-gradient(135deg,
+            rgba(255, 248, 231, 0.75) 0%,
+            rgba(255, 229, 229, 0.70) 50%,
+            rgba(212, 232, 212, 0.75) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -163,15 +161,21 @@ body {
     letter-spacing: 0.1em;
     text-shadow: 2px 2px 8px rgba(139, 115, 85, 0.3);
     position: relative;
-    display: flex; /* Added for column layout */
-    flex-direction: column; /* Added for column layout */
-    align-items: center; /* Center the lines */
-    line-height: 1.2; /* Adjust line height for better spacing */
+    display: flex;
+    /* Added for column layout */
+    flex-direction: column;
+    /* Added for column layout */
+    align-items: center;
+    /* Center the lines */
+    line-height: 1.2;
+    /* Adjust line height for better spacing */
 }
 
 .title-main-line {
-    font-size: clamp(2.5rem, 6vw, 5rem); /* Inherit or set large font size */
-    white-space: nowrap; /* Ensure each line stays on one line */
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    /* Inherit or set large font size */
+    white-space: nowrap;
+    /* Ensure each line stays on one line */
 }
 
 .title-main::before,
@@ -436,6 +440,89 @@ body {
 
 .gallery-item:hover img {
     transform: scale(1.1);
+}
+
+/* ===== Special Gift Section ===== */
+.special-gift {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #FFF0F5 0%, #FFF8F0 100%);
+    /* overflow: hidden; Removed to allow sparkles to be visible */
+}
+
+.gift-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    max-width: 1000px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.gift-image {
+    flex: 1;
+    min-width: 300px;
+    max-width: 450px;
+    /* border-radius: 20px; Moved to img/container specific handling if needed, but keeping here is fine if we want the whole block to rotate */
+    /* overflow: hidden;  Removing this from container so note isn't clipped if we want it outside, but note is inside. */
+    /* Actually, let's keep the rotation on a wrapper or the image itself. */
+    position: relative;
+    transform: rotate(-3deg);
+    transition: transform 0.3s ease;
+}
+
+.gift-image:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+.gift-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+    /* Moved radius to image */
+    box-shadow: 0 10px 30px rgba(139, 115, 85, 0.15);
+}
+
+.image-note {
+    font-size: 0.8rem;
+    color: #8B7355;
+    margin-top: 10px;
+    text-align: right;
+    opacity: 0.8;
+}
+
+.gift-text {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+
+.gift-subtitle {
+    font-family: 'Shippori Mincho', serif;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    color: #8B7355;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.gift-note {
+    font-size: 0.9rem;
+    color: #C08585;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .gift-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .gift-image {
+        transform: rotate(0);
+        max-width: 100%;
+    }
 }
 
 /* ===== Event Info Section ===== */
@@ -723,6 +810,7 @@ body {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -734,6 +822,7 @@ body {
         opacity: 0;
         transform: translateX(-100px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -744,6 +833,7 @@ body {
     0% {
         left: -100%;
     }
+
     100% {
         left: 200%;
     }
@@ -754,19 +844,24 @@ body {
         transform: translateX(0) translateY(0) scale(0) rotate(0deg);
         opacity: 0;
     }
+
     5% {
         opacity: 0.7;
     }
+
     15% {
         opacity: 1;
     }
+
     50% {
         transform: translateX(400px) translateY(var(--float-y)) scale(1) rotate(180deg);
         opacity: 1;
     }
+
     85% {
         opacity: 0.8;
     }
+
     100% {
         transform: translateX(800px) translateY(calc(var(--float-y) * 0.5)) scale(0.3) rotate(360deg);
         opacity: 0;
@@ -774,11 +869,14 @@ body {
 }
 
 @keyframes twinkle {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 0.6;
         transform: scale(0.8);
         filter: brightness(1);
     }
+
     50% {
         opacity: 1;
         transform: scale(1.3);
@@ -791,6 +889,7 @@ body {
         top: -10%;
         opacity: 0.8;
     }
+
     100% {
         top: 110%;
         opacity: 0;
@@ -798,15 +897,20 @@ body {
 }
 
 @keyframes petalSway {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateX(0) rotate(0deg);
     }
+
     25% {
         transform: translateX(30px) rotate(90deg);
     }
+
     50% {
         transform: translateX(-30px) rotate(180deg);
     }
+
     75% {
         transform: translateX(20px) rotate(270deg);
     }
@@ -820,7 +924,11 @@ body {
 }
 
 @media (max-width: 992px) {
-    .about, .gallery, .event-info, .message {
+
+    .about,
+    .gallery,
+    .event-info,
+    .message {
         padding: 80px 20px;
     }
 
@@ -845,7 +953,8 @@ body {
 
     .title-main-line {
 
-        font-size: clamp(2.5rem, 7vw, 5rem); /* Increased font size for each line */
+        font-size: clamp(2.5rem, 7vw, 5rem);
+        /* Increased font size for each line */
 
     }
 
@@ -949,7 +1058,8 @@ body {
 
     .section-title {
 
-        white-space: nowrap; /* Ensure "大自然が生み出した宝物" is on one line */
+        white-space: nowrap;
+        /* Ensure "大自然が生み出した宝物" is on one line */
 
     }
 
@@ -963,9 +1073,11 @@ body {
 
 
 
-    .about::before, /* Hide top-left image on mobile */
+    .about::before,
+    /* Hide top-left image on mobile */
 
-    .about::after { /* Hide bottom-right image on mobile */
+    .about::after {
+        /* Hide bottom-right image on mobile */
 
         display: none;
 
@@ -977,7 +1089,10 @@ body {
 
 @media (max-width: 576px) {
 
-    .about, .gallery, .event-info, .message {
+    .about,
+    .gallery,
+    .event-info,
+    .message {
 
         padding: 60px 15px;
 
@@ -987,7 +1102,8 @@ body {
 
     .title-main-line {
 
-        font-size: clamp(2.2rem, 6.5vw, 4.5rem); /* Further increased font size for each line */
+        font-size: clamp(2.2rem, 6.5vw, 4.5rem);
+        /* Further increased font size for each line */
 
     }
 
